@@ -1,11 +1,34 @@
-<h1>Goldene Bar</h1>
-<% @cocktails.each do |cocktail| %>
-  <div class="card" style="width: 18rem;" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)">
-    <img src="<%= cocktail.image_url %>"class="card-img-top" alt="">
-    <div class="card-body">
-      <h5 class="card-title"> <%= cocktail.name %></h5>
-      <p class="card-text"><% Text %></p>
-      <%= link_to "See recipe", cocktail_path(cocktail), class: "card-link" %>
-    </div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "https://www.seekpng.com/png/detail/25-254033_cocktail-glass-drawing-png.png" %>
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", cocktails_path, class: "nav-link" %>
+      </li>
+      <%= link_to "Add your drink", new_cocktail_path, class: "btn btn-primary pad20" %>
+    </ul>
   </div>
-<% end %>
+</div>
+<div class="container">
+  <!-- Heading -->
+  <h1 class="mt-4">Goldene Bar</h1>
+    <!-- Grid row -->
+  <div class="row">
+    <!-- Card -->
+    <% @cocktails.each do |cocktail| %>
+      <div class="card m-4">
+        <img class="card-img-top" src="<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>" alt="Card image top">
+        <div class="card-body">
+          <h3 class="card-title"><%= cocktail.name %></h3>
+          <%= link_to "See recipe", cocktail_path(cocktail), class: "card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<!-- Close main div -->
+</div>

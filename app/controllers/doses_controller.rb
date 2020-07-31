@@ -1,9 +1,8 @@
 class DosesController < ApplicationController
-
-  def new
+   def new
     @dose = Dose.new
     @cocktail = Cocktail.find(params[:cocktail_id])
-  end
+   end
 
   def create
     @cocktail = Cocktail.find(params[:cocktail_id])
