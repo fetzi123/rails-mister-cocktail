@@ -1,1 +1,11 @@
-
+<h1>Goldene Bar</h1>
+<% @cocktails.each do |cocktail| %>
+  <div class="card" style="width: 18rem;" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)">
+    <img src="<%= cocktail.image_url %>"class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title"> <%= cocktail.name %></h5>
+      <p class="card-text"><% Text %></p>
+      <%= link_to "See recipe", cocktail_path(cocktail), class: "card-link" %>
+    </div>
+  </div>
+<% end %>
